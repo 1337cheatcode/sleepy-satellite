@@ -1,0 +1,79 @@
+---
+import Layout from '../components/Layout.astro';
+//import json from '../data';
+import QwikJson from '../components/list';
+---
+
+<Layout title="Astro Quickstart">
+	<main>
+    <svg id="background" width='1728' height='1235' viewBox="0 0 1728 1235" fill='none' xmlns='http://www.w3.org/2000/svg'><g opacity='0.75' filter='url(#filter0_f_39_143)'><circle cy='1000' r='264' fill='url(#paint0_linear_39_143)'/></g><g opacity='0.65' filter='url(#filter1_f_39_143)'><circle cx='1720' cy='264' r='379' fill='url(#paint1_linear_39_143)'/></g><defs><filter id='filter0_f_39_143' x='-485' y='515' width='970' height='970' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><filter id='filter1_f_39_143' x='1120' y='-336' width='1200' height='1200' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><linearGradient id='paint0_linear_39_143' x1='196.5' y1='902' x2='-2.55853e-05' y2='1264' gradientUnits='userSpaceOnUse'><stop stop-color="var(--bttm-left-blur-1)"/><stop offset='1' stop-color="var(--bttm-left-blur-2)"/></linearGradient><linearGradient id='paint1_linear_39_143' x1='1720' y1='-115' x2='1720' y2='643' gradientUnits='userSpaceOnUse'><stop stop-color="var(--top-right-blur-1)"/><stop offset='1' stop-color="var(--top-right-blur-2)" /></linearGradient></defs></svg>
+    <!--div class="header">
+      <div id="pencarian">
+        <input id="cari-nama" placeholder="Nama">
+        <input id="cari-asal" placeholder="Asal">
+      </div>
+    </div>
+    <div id="content"-->
+      <QwikJson />
+      <!--table>
+        <thead>
+          <tr>
+            <th>Nomor Induk</th>
+            <th>Nama</th>
+            <th>Asal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {json.map(({no,nama,asal})=>
+            <tr onclick={`window.location='/${no}'`}>
+              <td style="text-align: center;">{no}</td>
+              <td>{nama}</td>
+              <td>{asal}</td>
+            </tr>)}
+        </tbody>
+      </table-->
+    </div>
+	</main>
+
+  <script is:inline></script>
+</Layout>
+
+<style>
+  #pencarian{
+    position:sticky;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:.5rem;
+    padding-bottom:.5rem;
+    &>input{
+      width:37.5%;
+    }
+  }
+  table{
+    width:75%;
+    border-collapse: collapse;
+    & tr{
+      border:1px solid black;
+    }
+  }
+  tbody tr{
+    &:hover{
+      cursor:pointer;
+      text-shadow: 0 0 2px;
+    }
+    &:nth-child(2n){
+      background-color: rgba(248, 248, 255, .625);
+      &:hover{
+        background-color: rgba(248, 248, 255,.875);
+      }
+    }
+    &:nth-child(2n+1){
+      background-color: rgba(245, 245, 245, .625);
+      &:hover{
+        background-color: rgba(245, 245, 245,.875);
+      }
+    }
+  }
+</style>

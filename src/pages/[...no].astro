@@ -1,0 +1,45 @@
+---
+import Layout from '../components/Layout.astro';
+import json from '../data';
+export async function getStaticPaths() {
+  return json.map(({no,nama,asal})=>{return {params:{no},props:{no,nama,asal}}})
+}
+
+const {no,nama,asal}=Astro.props;
+---
+<Layout title="Data Induk">
+  <main>
+    <svg id="background" width='1728' height='1235' viewBox="0 0 1728 1235" fill='none' xmlns='http://www.w3.org/2000/svg'><g opacity='0.75' filter='url(#filter0_f_39_143)'><circle cy='1000' r='264' fill='url(#paint0_linear_39_143)'/></g><g opacity='0.65' filter='url(#filter1_f_39_143)'><circle cx='1720' cy='264' r='379' fill='url(#paint1_linear_39_143)'/></g><defs><filter id='filter0_f_39_143' x='-485' y='515' width='970' height='970' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><filter id='filter1_f_39_143' x='1120' y='-336' width='1200' height='1200' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><linearGradient id='paint0_linear_39_143' x1='196.5' y1='902' x2='-2.55853e-05' y2='1264' gradientUnits='userSpaceOnUse'><stop stop-color="var(--bttm-left-blur-1)"/><stop offset='1' stop-color="var(--bttm-left-blur-2)"/></linearGradient><linearGradient id='paint1_linear_39_143' x1='1720' y1='-115' x2='1720' y2='643' gradientUnits='userSpaceOnUse'><stop stop-color="var(--top-right-blur-1)"/><stop offset='1' stop-color="var(--top-right-blur-2)" /></linearGradient></defs></svg>
+      <div>
+        <img src="https://c.pxhere.com/images/0f/3f/4dbc54d34a6b984a6c5f283be804-1447673.jpg!d" srcset="https://c.pxhere.com/images/0f/3f/4dbc54d34a6b984a6c5f283be804-1447673.jpg!d" alt="avatar, orang-orang, orang, bisnis, pemakai, manusia, karakter, set, icon, potret, Profil, pictograph, hairstyle, jaket, sesuai, kacamata hitam, tampan, kepala, menghadapi, Desain, konsep, simbol, tersenyum, resmi, elemen, kacamata, perawatan penglihatan, pria, pria, bahu, pakaian luar, dasi, Seorang pebisnis, rambut wajah, kacamata, clip art, kebiasaan manusia, pekerja kantoran, leher, Gambar In PxHere">
+      </div>
+      <div>
+        <div><span class="tab">No. Induk</span>{no}</div>
+        <div><span class="tab">Nama</span>{nama}</div>
+        <div><span class="tab">Asal</span>{asal}</div>
+      </div>
+  </main>
+</Layout>
+
+<style>
+  main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  main>div{
+    border: 1px solid black;
+  }
+  div>img{
+    height:37.5vh;
+  }
+  .tab{
+    display:inline-block;
+    width:5rem;
+  }
+  main>div:nth-child(2)>div{
+    border:1px solid darkgray;
+  }
+</style>
