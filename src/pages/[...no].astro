@@ -26,14 +26,14 @@ const {no,nama,asal}=Astro.props;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
-  }
-  main>div{
-    border: 1px solid black;
-  }
-  div>img{
-    height:37.5vh;
+    width: 100dvw;
+    height: 100dvh;
+    &>div{
+      border: 1px solid black;
+      &>img{
+        height:37.5dvmin;
+      }
+    }
   }
   .tab{
     display:inline-block;
